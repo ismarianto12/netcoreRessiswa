@@ -1,3 +1,4 @@
+namespace  RestSekolah.Models;
 public class MapelModel
 {
     public int Id { get; set; }

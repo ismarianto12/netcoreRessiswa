@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "iMxp/Rl7TEI=",
+  "dgSpecHash": "0CVBq/1aPRA=",
   "success": true,
   "projectFilePath": "/Users/ismarianto/RestSekolah/RestSekolah.csproj",
   "expectedPackageFiles": [
@@ -41,7 +41,10 @@
     "/Users/ismarianto/.nuget/packages/system.reflection.metadata/6.0.1/system.reflection.metadata.6.0.1.nupkg.sha512",
     "/Users/ismarianto/.nuget/packages/system.runtime.compilerservices.unsafe/6.0.0/system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
     "/Users/ismarianto/.nuget/packages/system.text.encoding.codepages/6.0.0/system.text.encoding.codepages.6.0.0.nupkg.sha512",
-    "/Users/ismarianto/.nuget/packages/system.threading.channels/6.0.0/system.threading.channels.6.0.0.nupkg.sha512"
+    "/Users/ismarianto/.nuget/packages/system.threading.channels/6.0.0/system.threading.channels.6.0.0.nupkg.sha512",
+    "/Users/ismarianto/.nuget/packages/microsoft.netcore.app.runtime.linux-x64/8.0.15/microsoft.netcore.app.runtime.linux-x64.8.0.15.nupkg.sha512",
+    "/Users/ismarianto/.nuget/packages/microsoft.aspnetcore.app.runtime.linux-x64/8.0.15/microsoft.aspnetcore.app.runtime.linux-x64.8.0.15.nupkg.sha512",
+    "/Users/ismarianto/.nuget/packages/microsoft.netcore.app.host.linux-x64/8.0.15/microsoft.netcore.app.host.linux-x64.8.0.15.nupkg.sha512"
   ],
   "logs": []
 }

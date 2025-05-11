@@ -13,6 +13,12 @@ using Microsoft.AspNetCore.Mvc.ViewFeatures;
 public class KelasController : Controller
 {
     private readonly ILogger<KelasController> _logger;
+    private readonly RestSekolah.Data.SekolahDbContext _context;
+    public KelasController(ILogger<KelasController> logger, RestSekolah.Data.SekolahDbContext context)
+    {
+        _logger = logger;
+        _context = context;
+    }
 
     public KelasController(ILogger<KelasController> logger)
     {
@@ -26,14 +32,14 @@ public class KelasController : Controller
     }
 
     [Route("api/kelas/edit/{id}")]
-    public IActionResult Privacy()
+    public IActionResult Edit()
     {
         return View();
     }
- 
+
     [HttpPost]
     [Route("api/kelas/create")]
-    public IActionResult Create([FromBody] KelasModel kelas)
+    public IActionResult Create(KelasModel kelas)
     {
         if (!ModelState.IsValid)
         {
@@ -41,8 +47,8 @@ public class KelasController : Controller
         }
 
         // Simpan data kelas ke database
-        // _context.Kelas.Add(kelas);
-        // _context.SaveChanges();
+        _context.Kelas.Add(kelas);
+        _context.SaveChanges();
 
         return Ok(new
         {
@@ -51,4 +57,5 @@ public class KelasController : Controller
             statusCode = 200
         });
     }
+
 }

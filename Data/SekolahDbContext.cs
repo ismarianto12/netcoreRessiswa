@@ -11,7 +11,8 @@ namespace RestSekolah.Data
         }
 
         public DbSet<SiswaModel> Siswa { get; set; }
-           public DbSet<MapelModel> Mapel { get; set; } 
+        public DbSet<MapelModel> Mapel { get; set; }
+        public DbSet<KelasModel> Kelas { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -107,7 +108,7 @@ namespace RestSekolah.Data
                     Kelas = "XII IPS 2",
                     Semester = "Genap"
                 }
-            );  
+            );
             modelBuilder.Entity<MapelModel>().HasData(
                 new MapelModel
                 {

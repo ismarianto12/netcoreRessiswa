@@ -1,6 +1,6 @@
 namespace  RestSekolah.Models;
 using System.ComponentModel.DataAnnotations;
-class KelasModel
+public class KelasModel
 {
     public int Id { get; set; }
     public string NamaKelas { get; set; }

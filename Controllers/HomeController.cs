@@ -15,7 +15,12 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        return View();
+        return Ok(new
+        {
+            success = true,
+            message = "Welcome to Rest Sekolah API",
+            statusCode = 200
+        });
     }
 
     public IActionResult Privacy()

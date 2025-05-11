@@ -3,13 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RestSekolah.Data;
 using RestSekolah.Models;
-using System.Diagnostics;
 using System.Linq;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
-using Microsoft.AspNetCore.Mvc.ViewFeatures;
-using Microsoft.AspNetCore.Mvc.ViewFeatures;
-using System.Collections.Generic;
 
 public class ResMapelController : Controller
 {
@@ -24,11 +18,52 @@ public class ResMapelController : Controller
     }
     // GET: Mapel
     [Route("api/mapel/list")]
-    public IActionResult Index()
+    [HttpGet]
+    public IActionResult Index(string? search, string? sortBy, string? sortOrder, int page = 1, int pageSize = 10)
     {
-        var mapel = _context.Mapel.ToList();
-        return Ok(mapel);
+        Console.WriteLine(page + "Jumlah Page Size");
+        
+        if (page < 1) page = 1;
+        if (pageSize < 1) pageSize = 10;
+        var query = _context.Mapel.AsQueryable();
+        // cari 
+        if (!string.IsNullOrEmpty(search))
+        {
+            query = query.Where(m => EF.Functions.Like(m.Nama, $"%{search}%") || EF.Functions.Like(m.Kode, $"%{search}%"));
+        }
+
+        var validSortColumns = new[] { "Nama", "Kode" };
+        if (!string.IsNullOrEmpty(sortBy) && validSortColumns.Contains(sortBy))
+        {
+            if (sortOrder?.ToLower() == "desc")
+            {
+                query = query.OrderByDescending(e => EF.Property<object>(e, sortBy));
+            }
+            else
+            {
+                query = query.OrderBy(e => EF.Property<object>(e, sortBy));
+            }
+        }
+
+        // Pagination
+        var totalItems = query.Count();
+        var totalPages = (int)Math.Ceiling(totalItems / (double)pageSize);
+        var items = query.Skip((page - 1) * pageSize).Take(pageSize).ToList();
+
+        return Ok(new
+        {
+            success = true,
+            data = items,
+            pagination = new
+            {
+                currentPage = page,
+                pageSize,
+                totalItems,
+                totalPages
+            }
+        });
     }
+
     // GET: Mapel/Details/5
     [Route("api/mapel/details/{id}")]
     [HttpGet]

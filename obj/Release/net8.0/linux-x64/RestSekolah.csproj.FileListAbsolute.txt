@@ -424,3 +424,7 @@
 /Users/ismarianto/RestSekolah/obj/Release/net8.0/linux-x64/RestSekolah.pdb
 /Users/ismarianto/RestSekolah/obj/Release/net8.0/linux-x64/RestSekolah.genruntimeconfig.cache
 /Users/ismarianto/RestSekolah/obj/Release/net8.0/linux-x64/ref/RestSekolah.dll
+/Users/ismarianto/RestSekolah/bin/Release/net8.0/linux-x64/publish/appsettings.Development.json
+/Users/ismarianto/RestSekolah/bin/Release/net8.0/linux-x64/publish/appsettings.json
+/Users/ismarianto/RestSekolah/bin/Release/net8.0/linux-x64/publish/RestSekolah.deps.json
+/Users/ismarianto/RestSekolah/bin/Release/net8.0/linux-x64/publish/RestSekolah.runtimeconfig.json

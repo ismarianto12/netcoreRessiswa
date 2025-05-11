@@ -9,8 +9,6 @@ API berbasis ASP.NET Core untuk mengelola data Siswa dan Mata Pelajaran (Mapel) 
 * Struktur RESTful API
 * Menggunakan `Entity Framework Core`
 
-
-
 ## 🧱 Struktur Proyek
 
 ```
@@ -90,6 +88,8 @@ dotnet run
 ## 📧 Kontak 083182305714
 
 ## Publish Runtime : dotnet publish -c Release -r linux-x64 --self-contained true -o ./publish //if used mac 
+## dotnet publish -c Release -r linux-x64 --self-contained true /p:PublishSingleFile=true
+
 
 Dibuat oleh Ismarianto – [LinkedIn](https://www.linkedin.com/in/ismarianto-amd-s-kom-58250023b) – [ismarianto97@gmail.com](mailto:ismarianto97@gmail.com)
  

@@ -1,16 +1,15 @@
 namespace SiswaRest.Controllers;
-using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
-using Microsoft.AspNetCore.Mvc.ViewFeatures;
-using Microsoft.AspNetCore.Mvc.ViewFeatures;
-using RestSekolah.Models;
 
-public class SiswaController : Controller
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using RestSekolah.Models;
+using System;
+using System.IO;
+using System.Linq;
+
+[Route("api/siswa")]
+[ApiController] // Tambahkan atribut ini untuk API controller
+public class SiswaController : ControllerBase
 {
     private readonly ILogger<SiswaController> _logger;
     private readonly RestSekolah.Data.SekolahDbContext _context;
@@ -21,121 +20,57 @@ public class SiswaController : Controller
         _context = context;
     }
 
-
-    // GET: Siswa
-    public IActionResult Index()
+    [HttpGet("bego/{id}")]
+    public IActionResult Index(int id)
     {
-        var siswa = _context.Siswa.ToList();
-        return Ok(siswa);
-    }
-
-    // GET: Siswa/Details/5
-    public IActionResult Details(int id)
-    {
-
-        var siswa = _context.Siswa.Find(id);
-        return Ok(siswa);
-
-
-    }
-
-    // GET: Siswa/Create
-    public IActionResult Create()
-    {
-        return View();
-    }
-
-
-    [HttpPost]
-    [Route("api/siswa")]
-    public IActionResult Create([FromBody] SiswaModel siswa)
-    {
-        if (!ModelState.IsValid)
+        try
         {
-            return BadRequest(ModelState);
+            var siswa = _context.Siswa.Find(id);
+            if (siswa == null)
+            {
+                _logger.LogWarning($"Siswa dengan ID {id} tidak ditemukan.");
+                return NotFound(new { message = "Siswa tidak ditemukan", statusCode = 404 });
+            }
+
+            return Ok(siswa); // Mengembalikan data dalam format JSON
         }
-
-        _context.Siswa.Add(siswa);
-        _context.SaveChanges();
-
-        return CreatedAtAction(nameof(Details), new { id = siswa.Id }, siswa);
-    }
-
-    // GET: Siswa/Edit/5
-    public IActionResult Edit(int id)
-    {
-        return View();
-    }
-    // POST: Siswa/Edit/5
-    [HttpPost]
-    [ValidateAntiForgeryToken]
-    public IActionResult Edit(int id, [Bind("Id,Nama,Kelas,Alamat,NoTelp")] SiswaModel siswa)
-    {
-
-        if (ModelState.IsValid)
+        catch (Exception ex)
         {
-            // 
+            _logger.LogError(ex, "Terjadi kesalahan saat mengambil data siswa.");
+            return StatusCode(500, new { message = "Terjadi kesalahan pada server", statusCode = 500 });
         }
-        return View(siswa);
-    }
-    public IActionResult Delete(int id)
-    {
-        return View();
-    }
-    // POST: Siswa/Delete/5
-    [HttpPost, ActionName("Delete")]
-    [ValidateAntiForgeryToken]
-    public IActionResult DeleteConfirmed(int id)
-    {
-        // Hapus data siswa dari database
-        return RedirectToAction(nameof(Index));
     }
 
-    // GET: Siswa/Search
-    public IActionResult Search(string query)
+    [HttpGet("listdatanya")]
+    public IActionResult GeneratePdfWithoutPackage()
     {
-        // Lakukan pencarian siswa berdasarkan query
-        return View();
-    }
-    // POST: Siswa/Search
-    [HttpPost]
-    [ValidateAntiForgeryToken]
-
-    // GET: Siswa/Export        
-    public IActionResult Export()
-    {
-        // Ekspor data siswa ke format yang diinginkan (misalnya CSV, Excel, dll.)
-        return View();
-    }
-    // POST: Siswa/Import
-    [HttpPost]
-    [ValidateAntiForgeryToken]
-    public IActionResult Import(IFormFile file)
-    {
-        if (file != null && file.Length > 0)
+        _logger.LogInformation("GeneratePdfWithoutPackage called");
+        _logger.LogInformation("GeneratePdfWithoutPackage called");
+        try
         {
-            // Proses file untuk mengimpor data siswa
-            return RedirectToAction(nameof(Index));
-        }
-        return View();
-    }
-    // GET: Siswa/Print
-    public IActionResult Print()
-    {
-        // Cetak data siswa
-        return View();
-    }
-    // POST: Siswa/Print
-    [HttpPost]
-    [ValidateAntiForgeryToken]
-    public IActionResult Print([Bind("Id,Nama,Kelas,Alamat,NoTelp")] SiswaModel siswa)
-    {
-        if (ModelState.IsValid)
-        {
-            // Cetak data siswa
-            return RedirectToAction(nameof(Index));
-        }
-        return View(siswa);
-    }
+            var siswaList = _context.Siswa.ToList();
 
+            string htmlContent = "<html><head><title>Laporan Data Siswa</title></head><body>";
+            htmlContent += "<h1>Laporan Data Siswa</h1>";
+            htmlContent += $"<p>Tanggal: {DateTime.Now:dd MMMM yyyy}</p>";
+            htmlContent += "<table border='1' cellpadding='5' cellspacing='0'>";
+            htmlContent += "<tr><th>ID</th><th>Nama</th><th>Kelas</th><th>Alamat</th><th>No Telp</th></tr>";
+
+            foreach (var siswa in siswaList)
+            {
+                htmlContent += $"<tr><td>{siswa.Id}</td><td>{siswa.Nama}</td><td>{siswa.Kelas}</td><td>{siswa.Alamat}</td><td>{siswa.NoTelp}</td></tr>";
+            }
+
+            htmlContent += "</table></body></html>";
+
+            byte[] pdfBytes = System.Text.Encoding.UTF8.GetBytes(htmlContent); // Simulasi PDF
+            Response.Headers.Add("Content-Disposition", "inline; filename=Laporan-Data-Siswa.pdf");
+            return File(pdfBytes, "application/pdf");
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Terjadi kesalahan saat membuat PDF.");
+            return StatusCode(500, new { message = "Terjadi kesalahan pada server", statusCode = 500 });
+        }
+    }
 }

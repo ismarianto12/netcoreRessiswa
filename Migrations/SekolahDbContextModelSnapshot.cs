@@ -21,7 +21,34 @@ namespace RestSekolah.Migrations
 
             MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
 
-            modelBuilder.Entity("MapelModel", b =>
+            modelBuilder.Entity("RestSekolah.Models.KelasModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("JumlahSiswa")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Jurusan")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<int>("Kapasitas")
+                        .HasColumnType("int");
+
+                    b.Property<string>("NamaKelas")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("kelas");
+                });
+
+            modelBuilder.Entity("RestSekolah.Models.MapelModel", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -58,7 +85,7 @@ namespace RestSekolah.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Mapel");
+                    b.ToTable("mapel");
 
                     b.HasData(
                         new
@@ -353,7 +380,7 @@ namespace RestSekolah.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Siswa");
+                    b.ToTable("siswa");
 
                     b.HasData(
                         new

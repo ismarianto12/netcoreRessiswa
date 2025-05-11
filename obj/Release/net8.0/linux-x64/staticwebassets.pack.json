@@ -245,6 +245,10 @@
       "PackagePath": "staticwebassets/lib/jquery/dist/jquery.min.map"
     },
     {
+      "Id": "/Users/ismarianto/RestSekolah/wwwroot/uploads/9fa7b2e7-43fc-45bc-b98c-1c744f710bdd.jpeg",
+      "PackagePath": "staticwebassets/uploads/9fa7b2e7-43fc-45bc-b98c-1c744f710bdd.jpeg"
+    },
+    {
       "Id": "obj/Release/net8.0/linux-x64/staticwebassets/msbuild.RestSekolah.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },

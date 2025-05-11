@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "0CVBq/1aPRA=",
+  "dgSpecHash": "3O7h7JhjACc=",
   "success": true,
   "projectFilePath": "/Users/ismarianto/RestSekolah/RestSekolah.csproj",
   "expectedPackageFiles": [
@@ -29,6 +29,7 @@
     "/Users/ismarianto/.nuget/packages/mono.texttemplating/2.2.1/mono.texttemplating.2.2.1.nupkg.sha512",
     "/Users/ismarianto/.nuget/packages/mysqlconnector/2.3.5/mysqlconnector.2.3.5.nupkg.sha512",
     "/Users/ismarianto/.nuget/packages/pomelo.entityframeworkcore.mysql/8.0.3/pomelo.entityframeworkcore.mysql.8.0.3.nupkg.sha512",
+    "/Users/ismarianto/.nuget/packages/rotativa.aspnetcore/1.4.0/rotativa.aspnetcore.1.4.0.nupkg.sha512",
     "/Users/ismarianto/.nuget/packages/system.codedom/4.4.0/system.codedom.4.4.0.nupkg.sha512",
     "/Users/ismarianto/.nuget/packages/system.collections.immutable/6.0.0/system.collections.immutable.6.0.0.nupkg.sha512",
     "/Users/ismarianto/.nuget/packages/system.composition/6.0.0/system.composition.6.0.0.nupkg.sha512",
@@ -41,10 +42,7 @@
     "/Users/ismarianto/.nuget/packages/system.reflection.metadata/6.0.1/system.reflection.metadata.6.0.1.nupkg.sha512",
     "/Users/ismarianto/.nuget/packages/system.runtime.compilerservices.unsafe/6.0.0/system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
     "/Users/ismarianto/.nuget/packages/system.text.encoding.codepages/6.0.0/system.text.encoding.codepages.6.0.0.nupkg.sha512",
-    "/Users/ismarianto/.nuget/packages/system.threading.channels/6.0.0/system.threading.channels.6.0.0.nupkg.sha512",
-    "/Users/ismarianto/.nuget/packages/microsoft.netcore.app.runtime.linux-x64/8.0.15/microsoft.netcore.app.runtime.linux-x64.8.0.15.nupkg.sha512",
-    "/Users/ismarianto/.nuget/packages/microsoft.aspnetcore.app.runtime.linux-x64/8.0.15/microsoft.aspnetcore.app.runtime.linux-x64.8.0.15.nupkg.sha512",
-    "/Users/ismarianto/.nuget/packages/microsoft.netcore.app.host.linux-x64/8.0.15/microsoft.netcore.app.host.linux-x64.8.0.15.nupkg.sha512"
+    "/Users/ismarianto/.nuget/packages/system.threading.channels/6.0.0/system.threading.channels.6.0.0.nupkg.sha512"
   ],
   "logs": []
 }

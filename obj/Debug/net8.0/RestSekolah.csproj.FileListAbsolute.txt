@@ -109,3 +109,9 @@
 /Users/ismarianto/RestSekolah/obj/Debug/net8.0/RestSekolah.csproj.AssemblyReference.cache
 /Users/ismarianto/RestSekolah/obj/Debug/net8.0/RestSeko.87F65734.Up2Date
 /Users/ismarianto/RestSekolah/obj/Debug/net8.0/RestSekolah.sourcelink.json
+/Users/ismarianto/RestSekolah/bin/Debug/net8.0/publish/appsettings.Development.json
+/Users/ismarianto/RestSekolah/bin/Debug/net8.0/publish/appsettings.json
+/Users/ismarianto/RestSekolah/bin/Debug/net8.0/publish/RestSekolah.deps.json
+/Users/ismarianto/RestSekolah/bin/Debug/net8.0/publish/RestSekolah.runtimeconfig.json
+/Users/ismarianto/RestSekolah/bin/Debug/net8.0/Rotativa.AspNetCore.dll
+/Users/ismarianto/RestSekolah/obj/Debug/net8.0/RestSekolah.MvcApplicationPartsAssemblyInfo.cs

@@ -1,10 +1,23 @@
-namespace  RestSekolah.Models;
+
 using System.ComponentModel.DataAnnotations;
-public class KelasModel
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Diagnostics.CodeAnalysis;
+namespace RestSekolah.Models
 {
-    public int Id { get; set; }
-    public string NamaKelas { get; set; }
-    public string Jurusan { get; set; }
-    public int Kapasitas { get; set; }
-    public int JumlahSiswa { get; set; }
+    [Table("kelas")]
+    public class KelasModel
+    {
+
+        public int Id { get; set; }
+        public string NamaKelas { get; set; }
+        [Required(ErrorMessage = "Tahun ajaran tidak boleh kosong")]
+
+        public string Jurusan { get; set; }
+        [Required(ErrorMessage = "Tahun ajaran tidak boleh kosong")]
+        public int Kapasitas { get; set; }
+
+        [Required(ErrorMessage = "Tahun ajaran tidak boleh kosong")]
+        public int JumlahSiswa { get; set; }
+    }
 }
+

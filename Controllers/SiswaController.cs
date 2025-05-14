@@ -1,4 +1,4 @@
-namespace SiswaRest.Controllers;
+namespace RestSekolah.Controllers;
 
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -7,8 +7,7 @@ using System;
 using System.IO;
 using System.Linq;
 
-[Route("api/siswa")]
-[ApiController] // Tambahkan atribut ini untuk API controller
+
 public class SiswaController : ControllerBase
 {
     private readonly ILogger<SiswaController> _logger;
@@ -20,7 +19,24 @@ public class SiswaController : ControllerBase
         _context = context;
     }
 
-    [HttpGet("bego/{id}")]
+    [Route("api/sekolah/list")]
+    [HttpGet]
+    public IActionResult Index()
+    {
+        try
+        {
+            var siswaList = _context.Siswa.ToList();
+            return Ok(siswaList);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Terjadi kesalahan saat mengambil data siswa.");
+            return StatusCode(500, new { message = "Terjadi kesalahan pada server", statusCode = 500 });
+        }
+    }
+
+    [Route("api/sekolah/edit/{id}")]
+    [HttpPost]
     public IActionResult Index(int id)
     {
         try
@@ -41,7 +57,8 @@ public class SiswaController : ControllerBase
         }
     }
 
-    [HttpGet("listdatanya")]
+    [Route("api/sekolah")]
+    [HttpGet]
     public IActionResult GeneratePdfWithoutPackage()
     {
         _logger.LogInformation("GeneratePdfWithoutPackage called");
@@ -73,4 +90,6 @@ public class SiswaController : ControllerBase
             return StatusCode(500, new { message = "Terjadi kesalahan pada server", statusCode = 500 });
         }
     }
+
+
 }

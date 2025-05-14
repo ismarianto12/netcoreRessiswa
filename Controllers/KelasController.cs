@@ -132,16 +132,7 @@ public class KelasController : Controller
             statusCode = 200
         });
     }
-    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-    public IActionResult Error()
-    {
-        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-    }
-    public IActionResult Privacy()
-    {
-        return View();
-    }
-     
+ 
     [HttpPost]
     [ValidateAntiForgeryToken]
     public IActionResult Store([Bind("Id,Nama,Kode,JumlahSiswa,Keterangan,Jenis,Kelas,Semester")] KelasModel kelas)

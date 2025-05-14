@@ -21,6 +21,113 @@ namespace RestSekolah.Migrations
 
             MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
 
+            modelBuilder.Entity("RestSekolah.Models.JadwaModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Hari")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Jam")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Kelas")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("MataPelajaran")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Pengajar")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("jadwal");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Hari = "Senin",
+                            Jam = "08:00 - 09:30",
+                            Kelas = "XII IPA 1",
+                            MataPelajaran = "Matematika",
+                            Pengajar = "Budi"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Hari = "Selasa",
+                            Jam = "10:00 - 11:30",
+                            Kelas = "XII IPS 2",
+                            MataPelajaran = "Bahasa Inggris",
+                            Pengajar = "Siti"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Hari = "Rabu",
+                            Jam = "08:00 - 09:30",
+                            Kelas = "XII IPA 1",
+                            MataPelajaran = "Biologi",
+                            Pengajar = "Andi"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Hari = "Kamis",
+                            Jam = "10:00 - 11:30",
+                            Kelas = "XII IPS 2",
+                            MataPelajaran = "Ekonomi",
+                            Pengajar = "Dewi"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Hari = "Jumat",
+                            Jam = "08:00 - 09:30",
+                            Kelas = "XII IPA 1",
+                            MataPelajaran = "Kimia",
+                            Pengajar = "Rudi"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Hari = "Sabtu",
+                            Jam = "10:00 - 11:30",
+                            Kelas = "XII IPS 2",
+                            MataPelajaran = "Geografi",
+                            Pengajar = "Ani"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Hari = "Minggu",
+                            Jam = "08:00 - 09:30",
+                            Kelas = "XII IPA 1",
+                            MataPelajaran = "Fisika",
+                            Pengajar = "Budi"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Hari = "Senin",
+                            Jam = "10:00 - 11:30",
+                            Kelas = "XII IPS 2",
+                            MataPelajaran = "Sosiologi",
+                            Pengajar = "Siti"
+                        });
+                });
+
             modelBuilder.Entity("RestSekolah.Models.KelasModel", b =>
                 {
                     b.Property<int>("Id")

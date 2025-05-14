@@ -1,19 +1,13 @@
-@model YourReportModel
+@model SiswaModel
 
-<h2>@Model.Title</h2>
-<p>Tanggal: @Model.Date.ToString("dd MMM yyyy")</p>
+<h2>@Model.Alamat</h2>
+<p>Tanggal: </p>
 
 <table border="1" cellpadding="5">
     <thead>
         <tr><th>Nama</th><th>Harga</th></tr>
     </thead>
     <tbody>
-        @foreach (var item in Model.Items)
-        {
-            <tr>
-                <td>@item.Name</td>
-                <td>@item.Price.ToString("C")</td>
-            </tr>
-        }
+        
     </tbody>
 </table>

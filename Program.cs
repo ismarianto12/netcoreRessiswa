@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using Rotativa.AspNetCore;
 var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
+builder.Services.AddControllers();
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<RestSekolah.Data.SekolahDbContext>(options =>
     options.UseMySql(
@@ -44,18 +45,14 @@ if (!app.Environment.IsDevelopment())
 
 // RotativaConfiguration.Setup(app.Environment.WebRootPath, "Rotativa");
 
-
-app.UseRotativa(); 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
 app.UseRouting();
-
 app.UseAuthorization();
 app.UseStaticFiles();
 
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
-
+app.MapControllers();
 app.Run();

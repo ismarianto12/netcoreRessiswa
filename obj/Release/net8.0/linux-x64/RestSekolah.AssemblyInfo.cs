@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RestSekolah")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c716e8aa8f7946100a051cfa9a92db8ef8fb33ac")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2c79c23ec25c8c47ba8df50dd4fe2efb3bea4303")]
 [assembly: System.Reflection.AssemblyProductAttribute("RestSekolah")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RestSekolah")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,8 +1,4 @@
 /Users/ismarianto/RestSekolah/bin/Release/net8.0/linux-x64/publish/appsettings.Development.json
 /Users/ismarianto/RestSekolah/bin/Release/net8.0/linux-x64/publish/appsettings.json
-/Users/ismarianto/RestSekolah/bin/Release/net8.0/linux-x64/publish/publish/appsettings.Development.json
-/Users/ismarianto/RestSekolah/bin/Release/net8.0/linux-x64/publish/publish/appsettings.json
-/Users/ismarianto/RestSekolah/bin/Release/net8.0/linux-x64/publish/publish/RestSekolah.deps.json
-/Users/ismarianto/RestSekolah/bin/Release/net8.0/linux-x64/publish/publish/RestSekolah.runtimeconfig.json
 /Users/ismarianto/RestSekolah/bin/Release/net8.0/linux-x64/publish/RestSekolah.pdb
 /Users/ismarianto/RestSekolah/bin/Release/net8.0/linux-x64/publish/RestSekolah

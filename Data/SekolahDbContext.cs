@@ -13,12 +13,99 @@ namespace RestSekolah.Data
         public DbSet<SiswaModel> Siswa { get; set; }
         public DbSet<MapelModel> Mapel { get; set; }
         public DbSet<KelasModel> Kelas { get; set; }
+        public DbSet<JadwaModel> Jadwal { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-
+            
             // Seeding data untuk tabel Siswa
+
+
+            // set jadwal
+            modelBuilder.Entity<JadwaModel>().HasData(
+                new JadwaModel
+                {
+                    Id = 1,
+                    Hari = "Senin",
+                    Jam = "08:00 - 09:30",
+                    Kelas = "XII IPA 1",
+                    MataPelajaran = "Matematika",
+                    Pengajar = "Budi"
+                },
+                new JadwaModel
+                {
+                    Id = 2,
+                    Hari = "Selasa",
+                    Jam = "10:00 - 11:30",
+                    Kelas = "XII IPS 2",
+                    MataPelajaran = "Bahasa Inggris",
+                    Pengajar = "Siti"
+                }
+            );
+            modelBuilder.Entity<JadwaModel>().HasData(
+                new JadwaModel
+                {
+                    Id = 3,
+                    Hari = "Rabu",
+                    Jam = "08:00 - 09:30",
+                    Kelas = "XII IPA 1",
+                    MataPelajaran = "Biologi",
+                    Pengajar = "Andi"
+                },
+                new JadwaModel
+                {
+                    Id = 4,
+                    Hari = "Kamis",
+                    Jam = "10:00 - 11:30",
+                    Kelas = "XII IPS 2",
+                    MataPelajaran = "Ekonomi",
+                    Pengajar = "Dewi"
+                }
+            );
+            modelBuilder.Entity<JadwaModel>().HasData(
+                new JadwaModel
+                {
+                    Id = 5,
+                    Hari = "Jumat",
+                    Jam = "08:00 - 09:30",
+                    Kelas = "XII IPA 1",
+                    MataPelajaran = "Kimia",
+                    Pengajar = "Rudi"
+                },
+                new JadwaModel
+                {
+                    Id = 6,
+                    Hari = "Sabtu",
+                    Jam = "10:00 - 11:30",
+                    Kelas = "XII IPS 2",
+                    MataPelajaran = "Geografi",
+                    Pengajar = "Ani"
+                }
+            );
+            modelBuilder.Entity<JadwaModel>().HasData(
+                new JadwaModel
+                {
+                    Id = 7,
+                    Hari = "Minggu",
+                    Jam = "08:00 - 09:30",
+                    Kelas = "XII IPA 1",
+                    MataPelajaran = "Fisika",
+                    Pengajar = "Budi"
+                },
+                new JadwaModel
+                {
+                    Id = 8,
+                    Hari = "Senin",
+                    Jam = "10:00 - 11:30",
+                    Kelas = "XII IPS 2",
+                    MataPelajaran = "Sosiologi",
+                    Pengajar = "Siti"
+                }
+            );
+
+
+
             modelBuilder.Entity<SiswaModel>().HasData(
                 new SiswaModel
                 {
